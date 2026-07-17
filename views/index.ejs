@@ -374,10 +374,16 @@
   <h2 class="total-count">Total Countries: <%=total%>
   </h2>
   <script>
-    const country_codes = "<%= records %>".split(",") 
+    const country_codes = <%-JSON.stringify(records)%>;
     console.log(typeof ("<%= records %>"))
     country_codes.forEach(code => {
-      document.getElementById(code).style.fill = 'teal'
+      document.getElementById(code);
+console.log(code, country);
+if (country) {
+        country.style.fill = "teal";
+    } else {
+        console.log(code + " does not exist in the SVG.");
+    }
     });
 
   </script>
